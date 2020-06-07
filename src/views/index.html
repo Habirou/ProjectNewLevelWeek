@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    <title>Ecolete</title>
+{% endblock title %}
+
+{% set bodyId = "page-home" %}
+
+{% block styles %}
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/modal.css">
+{% endblock styles %}
+
+{% block content %}
+    <div class="content">
+
+        <header>
+            <img src="/assets/logo.svg" width="100px" height="100px" alt="logo">
+                
+            <a href="/create-point"><i class="material-icons">login</i> Cadastra um ponto de coleta</a>
+        </header>
+
+        <main>
+            <h1>Seu market place de coleta de residios</h1>
+            <p>Ajudem pessoas a encontrar pontas de coletas de forma efficiente</p>
+
+            <a href="#"><span></span><strong>Pesquisar pontas de coleta</strong></a>
+        </main>
+    </div>
+</div>
+
+<div id="modal" class="hide">
+    <div class="content">
+        <div class="header">
+            <h1>Pontos de coleta</h1>
+            <a href="#">
+                <i class="material-icons">close</i>
+            </a>
+        </div>
+        <form action="/search">
+            <label for="search">cidade ou estado</label>
+            <div class="field">
+                <input type="text" name="search" placeholder="Pesquise a cidade">
+                <button>
+                    <i class="material-icons">search</i>
+                </button>
+            </div>
+        </form>
+    </div>
+    <div class="content"><h1>qsdujikqsdj</h1></div>
+{% endblock content %}
+
+{% block scripts %}
+    <script src="/scripts/index.js"></script>
+{% endblock scripts %}
+
+</body>
+</html>

@@ -1,0 +1,118 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    <title>Criar um ponto de Ecolete</title>
+{% endblock title %}
+
+{% set bodyId = "page-create-point" %}
+
+{% block styles %}
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/create-point.css">
+    <link rel="stylesheet" href="/styles/modal.css">
+{% endblock styles %}
+
+{% block content %}
+    {% include "partials/page-header.html" %}
+    <div>
+    
+    <form action="/savepoint " method="POST">
+        <fieldset>
+            <legend>
+                <h1>Informacoes</h1>
+            </legend>
+
+            <div class="field-group">
+                <div class="field">
+                    <label for="name">nome da entidade</label>
+                    <input type="text" name="name" required="required">
+                </div>
+                <div class="field">
+                    <label for="name">Imagen da entidade</label>
+                    <input type="url" name="image" required="required">
+                </div>
+            </div>
+
+            <div class="field-group">
+                <div class="field">
+                    <label for="adress1">adresse</label>
+                    <input type="text" name="address" required="required">
+                </div>
+                <div class="field">
+                    <label for="adress2">numero/complemento</label>
+                    <input type="text" name="address2" required="required">
+                </div>
+            </div>
+
+            <div class="field-group">
+                <div class="field">
+                    <label for="state">Estado</label>
+                    <select name="uf" required="required">
+                        <option value="">Selectione o estado</option>
+                    </select>
+
+                    <input type="hidden" name="state">
+                </div>
+                <div class="field">
+                    <label for="city">Cidade</label>
+                    <select name="city" disabled="disabled" required="required">
+                        <option value="">Selectione a cidade</option>
+                    </select>
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>
+                <h2>Itens de coleta</h2>
+                <span>Selectione um ou mais itens abaixo</span>
+            </legend>
+
+            <div class="items-grid">
+                <li data-id="Lampadas">
+                    <i class="material-icons">face</i>
+                    <span>lampadas</span>
+                </li>
+                <li data-id="Pilhas e baterias">
+                    <i class="material-icons">account_balance</i>
+                    <span>Pilhas e baterias</span>
+                </li>
+                <li data-id="papeis e papelos">
+                    <i class="material-icons">account_balance_wallet</i>
+                    <span>papeis e papelos</span>
+                </li>
+                <li data-id="Residios eletronico">
+                    <i class="material-icons">account_box</i>
+                    <span>Residios eletronico</span>
+                </li>
+                <li data-id="Residios organicos">
+                    <i class="material-icons">account_circle</i>
+                    <span>Residios organicos</span>
+                </li>
+                <li data-id="Oleo de cozinha">
+                    <i class="material-icons">analytics</i>
+                    <span>Oleo de cozinha</span>
+                </li>
+            </div>
+            <input type="hidden" name="items">
+        </fieldset>
+
+        <button type="submit">Cadastrar ponto de coleta</button>
+
+    </form>
+
+    </div>
+    {% if saved %}
+
+            {% include "partials/point-created.html" %}
+
+    {% endif %}
+
+{% endblock content %}
+
+{% block scripts %}
+    <script src="/scripts/create-point.js"></script>
+{% endblock scripts %}
+
+</body>
+</html>
